@@ -1,0 +1,29 @@
+/*<style type="text/css">*/
+@charset=utf-8;
+/*link*/
+a
+{
+	color:#ffffff;
+}
+a:hover
+{
+	color:#000000;
+}
+#paperbg
+{
+	background:url(images/template/nen2.png);
+	background-attachment: fixed;
+	border:1px #2A1F00 inset;
+	width:90%;
+	margin:auto;
+	
+}
+
+#banner
+{
+	border:0px;
+	width:100%;
+	height:250px;
+	margin:auto;
+}
+
