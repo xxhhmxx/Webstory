@@ -5,6 +5,7 @@
 <title>Đọc Truyện Online</title>
 
 <link rel="stylesheet" href="xemtruyen.css" />
+
 <script src="lib.js" ></script>
 <style type="text/css">
 #center fieldset
@@ -122,12 +123,14 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 	</div>
     <div>
 		<a href="#" id="loadimage">
-			<center><img border="0" src="./image/anhnen.jpg" style="width:80%"></center>
+			<center><img src="./image/anhnen.jpg" style="width:80%"></center>
+			
 		</a>
+		
 	</div>
 	<div id="images">
 	</div>
-</div>
+
 
 <script>
     /*requirements:
@@ -147,7 +150,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
                     effect: "fadeIn",
                     effectTime: 1500,
 					
-                    //delay: 1000, //thoi gian cho: 3 giay
+                    delay: 2000, //thoi gian cho: 3 giay
                     bind: "event", //Yeu cau Lazy tren chinh doi tuong image
                     beforeLoad: function(element) {
                         //bat dau load hinh anh
@@ -166,7 +169,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
             }
         });
 		
-        $("#loadimage").mouseenter(function(){
+        $("#loadimage").mouseover(function(){
             $.ajax({
                 url: "response.php",
                 success: function(result) {
@@ -185,7 +188,31 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
         });
 
     });
-	<?php
+	
+</script>
+<div align="center">
+		<form name="form" id="form">
+			<select name="jumpMenu" id="jumpMenu" onChange="MM_jumpMenu('parent',this,0)">
+            <?php
+						require('opendb.php');
+						$masp = $_REQUEST['masp'];
+						$sochap = $_REQUEST['sochap'];
+						// xây dựng câu truy vấn
+						$sql = sprintf('select * from chapter where codep = "%s"',$masp);
+						// thực thi câu truy vấn, kết quả trả về dạng recordset
+						$recordset = mysql_query($sql);
+						require('closedb.php');
+					?>
+                    <?php
+					  while ($row = mysql_fetch_array($recordset))
+					  {
+					  ?>
+						<option value="xemtruyen.php?masp=<?=$row[0]?>&sochap=<?=$row[3]?>"<?php if($row['codep']==$masp&&$row['socuachap']==$sochap) echo ('selected="selected"')?>><?=$row[0]?> - chap <?=$row[3]?></option>
+					<?php
+					}
+					?>						
+			</select>
+			<?php
 			{
 						require('opendb.php');
 						$matruyen = $_REQUEST['masp'];
@@ -196,8 +223,8 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 						$recordsets = mysql_query($sql);
 						require('closedb.php');
 						$row = mysql_fetch_array($recordsets);
-						session_start();
-						$_SESSION['linkchap']=$row['linkchap'];
+						//session_start();
+						//$_SESSION['linkchap']=$row['linkchap'];
 			?>
 			<a href="xemtruyen.php?masp=<?=$matruyen?>&sochap=<?=$sotap-1?>">
 				<input name="chaptruoc" type="button" value="Chap Trước" width="30">
@@ -208,9 +235,14 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			<?php
 				}
 			?>	
-	<?php
-		include('modules/footer.php');
+			
+		</form>
+	</div>
+	<center style="color:white">
+		<?php
+			include ('modules/footer.php');
 		?>
-</script>
+	</center>
+</div>
 </body>
 </html>

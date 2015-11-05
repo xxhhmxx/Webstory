@@ -111,9 +111,12 @@ else
                             
                         />
                         Ghi nhớ
-                        
-                        <input name="btnSubmit" type="submit" value="Đăng nhập" class="nut"/>
+                     
+					<form action="index.php">
+						<input type="submit" value="Đăng nhập" name="btnSubmit" class="nut">
+					</form>
                      </div>
+					
                     <div style="padding:2%">
                         <a href="#" style="color:#2A1FFF">Quên mật khẩu</a><strong>&nbsp;|&nbsp;</strong><a href="dangky.php" style="color:#2A1FFF">Đăng ký</a>
                     </div>

@@ -38,7 +38,6 @@ include('common.php');
                         
                 </div> <!-- khung quang cao-->
 		
-		
             <?php
 			if(isLogged())
 			{
@@ -48,7 +47,7 @@ include('common.php');
 					<div id="spmoi"> 
             <div class="title_c">Truyện Mới</div>
 					<?php
-					include('frmProduct.php');
+					include('frm-add-Product.php');
 					?>
 			
                                    	
@@ -64,9 +63,9 @@ include('common.php');
             
         </div><!-- khung trang chinh-->
      
-        <?php
+    </div>
+	<?php
 			include('modules/footer.php');	
 		?>
-    </div>
 </body>
 </html>

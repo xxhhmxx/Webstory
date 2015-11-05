@@ -96,7 +96,7 @@ if(isset($_REQUEST['control']))
 		}
 		else
 		{
-				$sql = sprintf('update product set codek = "%s",  sotap= "%s", nguoidang = "%s", tacgia = "%s",  hientrang= "%s",  linkhinh = "%s" where codep = "%s"',$_REQUEST['txtCodek'], $_REQUEST['txtsotap'], $_REQUEST['txtnguoidang'], $_REQUEST['txttacgia'], $_REQUEST['txthientrang'], $_REQUEST['hinh'],$_REQUEST['txtCodep']);
+				$sql = sprintf('update product set codek = "%s",  sotap= "%s", nguoidang = "%s", tacgia = "%s",  hientrang= "%s",  linkhinh = "%s", theloai="%s", tentruyen="%s" where codep = "%s"',$_REQUEST['txtcodek'], $_REQUEST['txtsotap'], $_REQUEST['txtnguoidang'], $_REQUEST['txttacgia'], $_REQUEST['txthientrang'], $_REQUEST['hinh'],$_REQUEST['txtcodek'],$_REQUEST['txttentruyen'], $_REQUEST['txtcodep']);
 		}
 		$result = mysql_query($sql);
 		

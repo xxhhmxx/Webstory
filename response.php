@@ -3,6 +3,7 @@
 session_start();
 $linkchap =$_SESSION['linkchap'];
 $listUri = loadFiles($linkchap);
+//$listUri = loadFiles('./image/hacklink/chap1');
 
 function loadFiles($path)
 {

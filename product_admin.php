@@ -103,7 +103,7 @@ function ktXoa(codep)
 								{
 								
 								?>
-									<div class="sua"><a href="Add_edit_product.php?codep=<?=$row[0]?>"><img src="images/template/sua2.jpg" /></a></div>
+									<div class="sua"><a href="edit_product.php?codep=<?=$row[0]?>"><img src="images/template/sua2.jpg" /></a></div>
 								    
 									<div class="xoa"><a onclick="ktXoa('<?= $row[0]?>');" href="javascript:void(0)"><img src="images/template/xoa.jpg" /></a></div> 
 									
